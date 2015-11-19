@@ -1,6 +1,16 @@
-<h1>Index Page</h1>
+<div class="container">
+<div id="pins" class="transition-enabled">
+	<% @pins.each do |pin| %>
+		<div class="box panel panel-default">
+			<%= link_to (image_tag pin.image.url), pin %>
 
-<% @pins.each do |pin| %>
-	<%= link_to (image_tag pin.image.url(:medium)), pin %>
-	<h2> <%= link_to pin.title, pin %> </h2>
-<% end %>
+			<div class="panel-body">
+				<h2> <%= link_to pin.title, pin %> </h2>
+				<p class="user">
+					Submitted By: <%= pin.user.email %>
+				</p>
+			</div>
+		</div>
+	<% end %>
+</div>
+</div>
